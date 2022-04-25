@@ -77,6 +77,35 @@ function PrismaVol()
         echo $volAlasPrisma = 0;
     }
 }
+
+function LimasSegitigaLuas()
+{
+    if (isset($_POST["submit-limassegitiga"])) {
+        $alas = $_POST["alas"];
+        $tinggialas = $_POST["tinggialas"];
+        $tinggilimas = $_POST["tinggilimas"];
+        $tinggisisimiring = $_POST["tinggisisimiring"];
+        $hasilLuasLimasSegitiga = ((0.5 * $alas * $tinggialas) + (3 * 0.5 * $tinggialas * $tinggisisimiring));
+        echo $hasilLuasLimasSegitiga . ' ' . 'satuan';
+    } else {
+        echo  $hasilLuasLimasSegitiga = 0;
+    }
+}
+
+function LimasSegitigaVolume()
+{
+    if (isset($_POST["submit-limassegitiga"])) {
+        $alas = $_POST["alas"];
+        $tinggialas = $_POST["tinggialas"];
+        $tinggilimas = $_POST["tinggilimas"];
+        $tinggisisimiring = $_POST["tinggisisimiring"];
+        $hasilVolumeLimasSegitiga = (0.33 * (0.5 * $alas * $tinggialas) * $tinggilimas);
+        echo $hasilVolumeLimasSegitiga . ' ' . 'satuan';
+    } else {
+        echo  $hasilVolumeLimasSegitiga = 0;
+    }
+}
+
 ?>
 
 <!doctype html>
@@ -279,6 +308,72 @@ function PrismaVol()
                         </div>
                     </div>
 
+                    <!-- Limas Segitiga -->
+                    <div class="col-md-10 mb-5">
+                        <div class="card" style="overflow: hidden;">
+                            <div class="card-header bg-primary text-light d-flex justify-content-center align-items-center">
+                                <h5 class="card-title">Limas Segitiga</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                                        <img src="https://imgix2.ruangguru.com/assets/miscellaneous/png_hdbuf1_9083.PNG" alt="Balok" style="height: 130px;">
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="mb-1 row">
+                                            <label for="inputAlas" class="col-sm-3 col-form-label">Alas</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="alas" class="form-control form-control-sm" id="inputAlas" placeholder="Input Alas">
+                                            </div>
+                                        </div>
+                                        <div class="mb-1 row">
+                                            <label for="inputTinggiAlas" class="col-sm-3 col-form-label">Tinggi Alas</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="tinggialas" class="form-control form-control-sm" id="inputTinggiAlas" placeholder="Input Tinggi Alas">
+                                            </div>
+                                        </div>
+                                        <div class="mb-1 row">
+                                            <label for="inputTinggiLimas" class="col-sm-3 col-form-label">Tinggi Limas</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="tinggilimas" class="form-control form-control-sm" id="inputTinggiLimas" placeholder="Input Tinggi Limas">
+                                            </div>
+                                        </div>
+                                        <div class="mb-1 row">
+                                            <label for="inputTinggiSisiMiring" class="col-sm-3 col-form-label">Tinggi Sisi Miring</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="tinggisisimiring" class="form-control form-control-sm" id="inputTinggiSisiMiring" placeholder="Input Tinggi Sisi Miring">
+                                            </div>
+                                        </div>
+                                        <div class="mb-1 row">
+                                            <label class="col-sm-2 col-md-3 col-form-label">Luas</label>
+                                            <div class="col-sm-9 col-md-9 mt-1">
+                                                <h3>
+                                                    <?php
+                                                    LimasSegitigaLuas();
+                                                    ?>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class=" mb-1 row">
+                                            <label class="col-sm-2 col-md-3 col-form-label">Volume</label>
+                                            <div class="col-sm-9 col-md-9 mt-1">
+                                                <h3>
+                                                    <?php
+                                                    LimasSegitigaVolume();
+                                                    ?>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <a href="/PemWeb/TugasPertemuan9/" class="btn btn-md btn-danger">Hapus</a>
+                                            <button type="submit" name="submit-limassegitiga" value="submit" class="btn btn-md btn-primary">Hitung</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </form>
